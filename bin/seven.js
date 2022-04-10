@@ -21,9 +21,10 @@ const program = new Command();
 program
   .command("create") // 命令
   .argument("<projectName>", "project name you want create") // 参数名 + 参数描述
-  .action((projectName) => {
+  .argument("<date>", "created project date")
+  .action((projectName, date) => {
     // 输入命令后需要执行的回调函数
-    creatProject(projectName); // 处理函数
+    creatProject(projectName, date); // 处理函数
   });
 
 // 这里单独写是因为可以写很多 command
@@ -43,7 +44,19 @@ program.version(version).parse();
 //  - 第一个参数：表示参数名
 //    - <> 必选参数
 //    - [] 可选参数
+//    - ... 在参数名后面加上 ... 表示可变参数
 //  - 第二个参数：表示参数描述
+// ``` 可选参数示例
+// program
+//   .version('0.1.0')
+//   .command('rmdir')
+//   .argument('<dirs...>')
+//   .action(function (dirs) {
+//     dirs.forEach((dir) => {
+//       console.log('rmdir %s', dir);
+//     });
+//   });
+// ```
 
 // 3
 //  program.action((参数名) => { 输入命令后需要执行的代码 })
