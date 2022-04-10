@@ -1,0 +1,23 @@
+{
+  "name": "7-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "husky": "^7.0.4"
+  },
+  "bin": {
+    "seven-cli": "./bin/seven.js"
+  },
+  "dependencies": {
+    "commander": "^9.1.0"
+  }
+}
