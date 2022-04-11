@@ -1,7 +1,12 @@
 /* eslint-disable no-undef */
 
 const inquirer = require("inquirer");
-const { loading, getRepositories, fetchTagList } = require("./index.js");
+const {
+  loading,
+  getRepositories,
+  fetchTagList,
+  downloadFromGithub,
+} = require("./index.js");
 // const ora = require("ora");
 
 // function getSpinner(projectName, license) {
@@ -53,6 +58,9 @@ module.exports = async (name) => {
   } else {
     repoName += `#${branches[0]}`;
   }
+
+  const dir = await downloadFromGithub("woow-wu7", repoName);
+  console.log("模版存储的本地文件夹 -> ", dir);
 
   // let { license } = await inquirer.prompt({
   //   // 类型，list 表示可以选择
